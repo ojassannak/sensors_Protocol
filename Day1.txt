@@ -1,0 +1,213 @@
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Users\duasp> ssh raspberrypi@192.168.81.16
+The authenticity of host '192.168.81.16 (192.168.81.16)' can't be established.
+ECDSA key fingerprint is SHA256:HG0NhvUaaKjdLXewbXU8nK3ubO3PTTBYrF+nus2vCdc.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '192.168.81.16' (ECDSA) to the list of known hosts.
+raspberrypi@192.168.81.16's password:
+Permission denied, please try again.
+raspberrypi@192.168.81.16's password:
+Permission denied, please try again.
+raspberrypi@192.168.81.16's password:
+PS C:\Users\duasp> ssh duasp07@192.168.81.16
+duasp07@192.168.81.16's password:
+Linux raspberrypi 6.6.51+rpt-rpi-v8 #1 SMP PREEMPT Debian 1:6.6.51-1+rpt3 (2024-10-08) aarch64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Tue Nov 19 20:10:26 2024
+duasp07@raspberrypi:~ $ ls
+Bookshelf  Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+duasp07@raspberrypi:~ $ pwd
+/home/duasp07
+duasp07@raspberrypi:~ $ duasp07 -I
+-bash: duasp07: command not found
+duasp07@raspberrypi:~ $ hostname -I
+192.168.81.16
+duasp07@raspberrypi:~ $ hostname --help
+Usage: hostname [-b] {hostname|-F file}         set host name (from file)
+       hostname [-a|-A|-d|-f|-i|-I|-s|-y]       display formatted name
+       hostname                                 display host name
+
+       {yp,nis,}domainname {nisdomain|-F file}  set NIS domain name (from file)
+       {yp,nis,}domainname                      display NIS domain name
+
+       dnsdomainname                            display dns domain name
+
+       hostname -V|--version|-h|--help          print info and exit
+
+Program name:
+       {yp,nis,}domainname=hostname -y
+       dnsdomainname=hostname -d
+
+Program options:
+    -a, --alias            alias names
+    -A, --all-fqdns        all long host names (FQDNs)
+    -b, --boot             set default hostname if none available
+    -d, --domain           DNS domain name
+    -f, --fqdn, --long     long host name (FQDN)
+    -F, --file             read host name or NIS domain name from given file
+    -i, --ip-address       addresses for the host name
+    -I, --all-ip-addresses all addresses for the host
+    -s, --short            short host name
+    -y, --yp, --nis        NIS/YP domain name
+
+Description:
+   This command can get or set the host name or the NIS domain name. You can
+   also get the DNS domain or the FQDN (fully qualified domain name).
+   Unless you are using bind or NIS for host lookups you can change the
+   FQDN (Fully Qualified Domain Name) and the DNS domain name (which is
+   part of the FQDN) in the /etc/hosts file.
+duasp07@raspberrypi:~ $ pwd
+/home/duasp07
+duasp07@raspberrypi:~ $ mkdir folder1
+duasp07@raspberrypi:~ $ ls
+Bookshelf  Desktop  Documents  Downloads  folder1  Music  Pictures  Public  Templates  Videos
+duasp07@raspberrypi:~ $ cd  folder1
+duasp07@raspberrypi:~/folder1 $ Sudo nano program1.py
+-bash: Sudo: command not found
+duasp07@raspberrypi:~/folder1 $ sudo nano program1.py
+duasp07@raspberrypi:~/folder1 $ sudo nano program1.py
+duasp07@raspberrypi:~/folder1 $ python3 -version
+Unknown option: -e
+usage: python3 [option] ... [-c cmd | -m mod | file | -] [arg] ...
+Try `python -h' for more information.
+duasp07@raspberrypi:~/folder1 $ python3
+Python 3.11.2 (main, Sep 14 2024, 03:00:30) [GCC 12.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+[1]+  Stopped                 python3
+duasp07@raspberrypi:~/folder1 $ python3 --version
+Python 3.11.2
+duasp07@raspberrypi:~/folder1 $ python3 program1.py
+hello world
+duasp07@raspberrypi:~/folder1 $ scp mohit3005@192.168.81.15:file1.py
+usage: scp [-346ABCOpqRrsTv] [-c cipher] [-D sftp_server_path] [-F ssh_config]
+           [-i identity_file] [-J destination] [-l limit] [-o ssh_option]
+           [-P port] [-S program] [-X sftp_option] source ... target
+duasp07@raspberrypi:~/folder1 $ ls
+program1.py
+duasp07@raspberrypi:~/folder1 $ scp mohit3005@192.168.81.15:file1.py
+usage: scp [-346ABCOpqRrsTv] [-c cipher] [-D sftp_server_path] [-F ssh_config]
+           [-i identity_file] [-J destination] [-l limit] [-o ssh_option]
+           [-P port] [-S program] [-X sftp_option] source ... target
+duasp07@raspberrypi:~/folder1 $ scp program1 mohit3005@192.168.81.15
+cp: cannot stat 'program1': No such file or directory
+duasp07@raspberrypi:~/folder1 $ scp program1 mohit3005@192.168.81.15:
+The authenticity of host '192.168.81.15 (192.168.81.15)' can't be established.
+ED25519 key fingerprint is SHA256:oiOo9lxqfl/nUAEzR1CXYOxTTN4EokU+EGowA7EYNME.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.81.15' (ED25519) to the list of known hosts.
+mohit3005@192.168.81.15's password:
+scp: stat local "program1": No such file or directory
+duasp07@raspberrypi:~/folder1 $ scp program1.py mohit3005@192.168.81.15:
+mohit3005@192.168.81.15's password:
+program1.py                                                                                                     100%   21    42.9KB/s   00:00
+duasp07@raspberrypi:~/folder1 $ ls
+program1.py
+duasp07@raspberrypi:~/folder1 $ pwd
+/home/duasp07/folder1
+duasp07@raspberrypi:~/folder1 $ cd ..
+duasp07@raspberrypi:~ $ ls
+Bookshelf  Desktop  Documents  Downloads  folder1  game.py  Music  Pictures  program1.py  Public  Templates  Videos
+duasp07@raspberrypi:~ $ systemctl ssh status
+Unknown command verb ssh.
+duasp07@raspberrypi:~ $ ssh service status
+ssh: Could not resolve hostname service: Temporary failure in name resolution
+duasp07@raspberrypi:~ $ service ssh status
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2024-11-19 20:10:21 IST; 54min ago
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+    Process: 698 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
+   Main PID: 735 (sshd)
+      Tasks: 1 (limit: 8731)
+        CPU: 1.420s
+     CGroup: /system.slice/ssh.service
+             └─735 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+
+Nov 19 21:01:06 raspberrypi sshd[1890]: pam_env(sshd:session): deprecated reading of user environment enabled
+Nov 19 21:01:06 raspberrypi sshd[1890]: pam_unix(sshd:session): session closed for user duasp07
+Nov 19 21:02:13 raspberrypi sshd[1900]: Accepted password for duasp07 from 192.168.81.14 port 43326 ssh2
+Nov 19 21:02:13 raspberrypi sshd[1900]: pam_unix(sshd:session): session opened for user duasp07(uid=1000) by (uid=0)
+Nov 19 21:02:13 raspberrypi sshd[1900]: pam_env(sshd:session): deprecated reading of user environment enabled
+Nov 19 21:02:13 raspberrypi sshd[1900]: pam_unix(sshd:session): session closed for user duasp07
+Nov 19 21:02:36 raspberrypi sshd[1909]: Accepted password for duasp07 from 192.168.81.14 port 43636 ssh2
+Nov 19 21:02:36 raspberrypi sshd[1909]: pam_unix(sshd:session): session opened for user duasp07(uid=1000) by (uid=0)
+Nov 19 21:02:36 raspberrypi sshd[1909]: pam_env(sshd:session): deprecated reading of user environment enabled
+Nov 19 21:02:36 raspberrypi sshd[1909]: pam_unix(sshd:session): session closed for user duasp07
+duasp07@raspberrypi:~ $ scp program1.py mohit3005@192.168.81.15:mohit/
+mohit3005@192.168.81.15's password:
+program1.py                                                                                                     100%   20    40.4KB/s   00:00
+duasp07@raspberrypi:~ $ scp program1.py duasp03@192.168.81.14:venky/
+The authenticity of host '192.168.81.14 (192.168.81.14)' can't be established.
+ED25519 key fingerprint is SHA256:bLK5AsGEmCsgt2ywDTNZ/xSy9sKSH2xlS4n1LMGZK7w.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.81.14' (ED25519) to the list of known hosts.
+duasp03@192.168.81.14's password:
+program1.py                                                                                                     100%   20    27.9KB/s   00:00
+duasp07@raspberrypi:~ $ ls
+Bookshelf  Desktop  Documents  Downloads  folder1  game.py  Music  Pictures  program1.py  Public  Templates  Videos
+duasp07@raspberrypi:~ $ cd Downloads
+duasp07@raspberrypi:~/Downloads $ ls
+game.py
+duasp07@raspberrypi:~/Downloads $ scp -r folder1/ duasp03@192.168.81.14:
+duasp03@192.168.81.14's password:
+scp: stat local "folder1/": No such file or directory
+duasp07@raspberrypi:~/Downloads $ cd folder1
+-bash: cd: folder1: No such file or directory
+duasp07@raspberrypi:~/Downloads $ pwd
+/home/duasp07/Downloads
+duasp07@raspberrypi:~/Downloads $ cd ..
+duasp07@raspberrypi:~ $ scp -r folder1/ duasp03@192.168.81.14:
+duasp03@192.168.81.14's password:
+program1.py                                                                                                     100%   21    26.8KB/s   00:00
+duasp07@raspberrypi:~ $ cd Downloads
+duasp07@raspberrypi:~/Downloads $ ls
+game.py  venky
+duasp07@raspberrypi:~/Downloads $ cd ..
+duasp07@raspberrypi:~ $ cd ..
+duasp07@raspberrypi:/home $ cd ..
+duasp07@raspberrypi:/ $ cat program1.py
+cat: program1.py: No such file or directory
+duasp07@raspberrypi:/ $ pwd
+/
+duasp07@raspberrypi:/ $ cd home/
+duasp07@raspberrypi:/home $ cat program1.py
+cat: program1.py: No such file or directory
+duasp07@raspberrypi:/home $ pwd
+/home
+duasp07@raspberrypi:/home $ ls
+duasp07
+duasp07@raspberrypi:/home $ ls
+duasp07
+duasp07@raspberrypi:/home $ cd duasp07/
+duasp07@raspberrypi:~ $ ls
+Bookshelf  Desktop  Documents  Downloads  folder1  game.py  Music  Pictures  program1.py  Public  Templates  Videos
+duasp07@raspberrypi:~ $ cat program1.py
+print('helloworld')
+duasp07@raspberrypi:~ $ mkdir codes
+duasp07@raspberrypi:~ $ ls
+Bookshelf  codes  Desktop  Documents  Downloads  folder1  game.py  Music  Pictures  program1.py  Public  Templates  Videos
+duasp07@raspberrypi:~ $ cd codes/
+duasp07@raspberrypi:~/codes $ sudo nano prog2.py
+duasp07@raspberrypi:~/codes $ duasp07@raspberrypi:~/codes $ python prog2.py
+MIHIRRRRRR
+duasp07@raspberrypi:~/codes $ cd ..
+duasp07@raspberrypi:~ $ cd Desktop/
+duasp07@raspberrypi:~/Desktop $ ls
+OJ.txt  ojya.py  raj.py
+duasp07@raspberrypi:~/Desktop $ cat raj.py
+x=33
+y=36
+print(x+y)
